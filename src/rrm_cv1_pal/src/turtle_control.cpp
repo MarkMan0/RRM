@@ -31,12 +31,19 @@ TurtleControl::TurtleControl()
   // get parameters from server
   n.getParam("/turtle_control/line/width", width);
 
+  std::vector<int> color;
+  n.getParam("/turtle_control/line/colorRGB", color);
+
   // Create service message
   turtlesim::SetPen setpen_srv;
   setpen_srv.request.width = width;
   setpen_srv.request.off = false;
+  setpen_srv.request.r = color[0];
+  setpen_srv.request.g = color[1];
+  setpen_srv.request.b = color[2];
 
   // Call service
+  setpen_client.waitForExistence();
   if (setpen_client.call(setpen_srv))
   {
     ROS_WARN("Ciara bola uspesne nastavena");

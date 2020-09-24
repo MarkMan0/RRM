@@ -1,3 +1,4 @@
 turtle_control:
   line:
     width: 20
+    colorRGB: [0, 255, 0]
