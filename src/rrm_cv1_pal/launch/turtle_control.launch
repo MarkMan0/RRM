@@ -1,0 +1,9 @@
+<?xml version='1.0'?>
+<launch>
+    <!--parameter loading-->
+    <rosparam command="load" file="$(find rrm_cv1_pal)/config/turtle_config.yaml"/>
+    <!--startup of the turtlesim node -->
+    <node pkg="turtlesim" name="turtle1" type="turtlesim_node"/>
+    <!--startup of tutrlesim controller -->
+    <node pkg="rrm_cv1_pal" name="turtle_control" type="turtle_control" output="screen"/>
+</launch>
