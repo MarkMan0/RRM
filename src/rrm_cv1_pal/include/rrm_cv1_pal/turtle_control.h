@@ -6,10 +6,10 @@
 
 // Include ros msgs
 #include <geometry_msgs/Twist.h>
-#include <turtlesim/Pose.h>
-#include <turtlesim/TeleportAbsolute.h>
-#include <turtlesim/SetPen.h>
 #include <rrm_cv1_pal/Draw.h>
+#include <turtlesim/Pose.h>
+#include <turtlesim/SetPen.h>
+#include <turtlesim/TeleportAbsolute.h>
 
 // main class for turtle control
 class TurtleControl
@@ -44,6 +44,7 @@ private:
   ros::Subscriber pose_sub_;
   ros::ServiceServer square_service_;
   ros::ServiceClient teleport_client_;
+  ros::ServiceClient clear_client;
 };
 
 #endif  // PROJECT_TURTLECONTROL_H

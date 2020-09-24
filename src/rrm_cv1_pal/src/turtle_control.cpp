@@ -1,4 +1,5 @@
 #include "rrm_cv1_pal/turtle_control.h"
+#include "std_srvs/Empty.h"
 
 TurtleControl::TurtleControl()
 {
@@ -16,6 +17,9 @@ TurtleControl::TurtleControl()
 
   // Service client
   teleport_client_ = n.serviceClient<turtlesim::TeleportAbsolute>("/turtle1/teleport_absolute");
+
+  clear_client = n.serviceClient<std_srvs::Empty>("/clear");
+
   ros::ServiceClient setpen_client = n.serviceClient<turtlesim::SetPen>("/turtle1/set_pen");
 
   // init variables
@@ -62,6 +66,9 @@ void TurtleControl::poseCallback(const turtlesim::Pose::ConstPtr& msg)
     teleport_srv.request.x = WINDOW_CENTER;
     teleport_srv.request.y = WINDOW_CENTER;
     teleport_client_.call(teleport_srv);
+
+    std_srvs::Empty empty;
+    clear_client.call(empty);
   }
   this->pose_msg_ = *msg;
 }
