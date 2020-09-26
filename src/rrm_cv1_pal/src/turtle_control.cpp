@@ -29,10 +29,21 @@ TurtleControl::TurtleControl()
   int width = 1;
 
   // get parameters from server
-  n.getParam("/turtle_control/line/width", width);
+  if (!n.getParam("/turtle_control/line/width", width))
+  {
+    ROS_WARN("Failed to get parameter /turtle_control/line/width, using 1");
+    width = 1;
+  }
 
   std::vector<int> color;
-  n.getParam("/turtle_control/line/colorRGB", color);
+  if (!n.getParam("/turtle_control/line/colorRGB", color) && color.size() != 3)
+  {
+    ROS_WARN("Failed to get parameter /turtle_control/line/colorRGB, using [255, 255, 255]");
+    color.clear();
+    color.push_back(255);
+    color.push_back(255);
+    color.push_back(255);
+  }
 
   // Create service message
   turtlesim::SetPen setpen_srv;
@@ -43,10 +54,10 @@ TurtleControl::TurtleControl()
   setpen_srv.request.b = color[2];
 
   // Call service
-  setpen_client.waitForExistence();
-  if (setpen_client.call(setpen_srv))
+  setpen_client.waitForExistence(ros::Duration(2));
+  if (!setpen_client.call(setpen_srv))
   {
-    ROS_WARN("Ciara bola uspesne nastavena");
+    ROS_WARN("Couldn't call setpen client");
   }
 
   // variable init
