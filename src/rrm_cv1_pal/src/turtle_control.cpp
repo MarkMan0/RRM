@@ -15,6 +15,7 @@ TurtleControl::TurtleControl()
   // Service server
   draw_line_service_ = n.advertiseService("/turtle_control/draw_line", &TurtleControl::drawCallback, this);
   draw_circle_service_ = n.advertiseService("/turtle_control/draw_circle", &TurtleControl::drawCircleCallback, this);
+  moving_service_ = n.advertiseService("/turtle_control/moving", &TurtleControl::movingCallback, this);
 
   // Service client
   teleport_client_ = n.serviceClient<turtlesim::TeleportAbsolute>("/turtle1/teleport_absolute");
@@ -97,6 +98,13 @@ bool TurtleControl::drawCircleCallback(rrm_cv1_pal::Draw_Circle::Request& req, r
     res.sucess = true;
   }
 
+  return true;
+}
+
+bool TurtleControl::movingCallback(rrm_cv1_pal::Moving::Request& req, rrm_cv1_pal::Moving::Response& res)
+{
+  drawing_status_ = req.moving;
+  res.success = true;
   return true;
 }
 

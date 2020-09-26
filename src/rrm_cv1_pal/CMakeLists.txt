@@ -58,6 +58,7 @@ add_service_files(
   FILES
   Draw_Line.srv
   Draw_Circle.srv
+  Moving.srv
 )
 
 ## Generate actions in the 'action' folder

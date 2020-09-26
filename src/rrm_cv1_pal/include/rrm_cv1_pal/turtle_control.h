@@ -8,6 +8,7 @@
 #include <geometry_msgs/Twist.h>
 #include <rrm_cv1_pal/Draw_Circle.h>
 #include <rrm_cv1_pal/Draw_Line.h>
+#include <rrm_cv1_pal/Moving.h>
 #include <turtlesim/Pose.h>
 #include <turtlesim/SetPen.h>
 #include <turtlesim/TeleportAbsolute.h>
@@ -22,6 +23,7 @@ public:
   // Callbacks
   bool drawCallback(rrm_cv1_pal::Draw_Line::Request& req, rrm_cv1_pal::Draw_Line::Response& res);
   bool drawCircleCallback(rrm_cv1_pal::Draw_Circle::Request&, rrm_cv1_pal::Draw_Circle::Response&);
+  bool movingCallback(rrm_cv1_pal::Moving::Request&, rrm_cv1_pal::Moving::Response&);
 
   void poseCallback(const turtlesim::Pose::ConstPtr& msg);
 
@@ -47,7 +49,7 @@ private:
   // ROS communication tools
   ros::Publisher velocity_pub_;
   ros::Subscriber pose_sub_;
-  ros::ServiceServer draw_line_service_, draw_circle_service_;
+  ros::ServiceServer draw_line_service_, draw_circle_service_, moving_service_;
   ros::ServiceClient teleport_client_;
   ros::ServiceClient clear_client_;
 };
