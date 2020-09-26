@@ -6,8 +6,8 @@
 
 // Include ros msgs
 #include <geometry_msgs/Twist.h>
-#include <rrm_cv1_pal/Draw.h>
 #include <rrm_cv1_pal/Draw_Circle.h>
+#include <rrm_cv1_pal/Draw_Line.h>
 #include <turtlesim/Pose.h>
 #include <turtlesim/SetPen.h>
 #include <turtlesim/TeleportAbsolute.h>
@@ -20,7 +20,7 @@ public:
   TurtleControl();
 
   // Callbacks
-  bool drawCallback(rrm_cv1_pal::Draw::Request& req, rrm_cv1_pal::Draw::Response& res);
+  bool drawCallback(rrm_cv1_pal::Draw_Line::Request& req, rrm_cv1_pal::Draw_Line::Response& res);
   bool drawCircleCallback(rrm_cv1_pal::Draw_Circle::Request&, rrm_cv1_pal::Draw_Circle::Response&);
 
   void poseCallback(const turtlesim::Pose::ConstPtr& msg);

@@ -13,7 +13,7 @@ TurtleControl::TurtleControl()
   pose_sub_ = n.subscribe("turtle1/pose", 1, &TurtleControl::poseCallback, this);
 
   // Service server
-  draw_line_service_ = n.advertiseService("/turtle_control/draw", &TurtleControl::drawCallback, this);
+  draw_line_service_ = n.advertiseService("/turtle_control/draw_line", &TurtleControl::drawCallback, this);
   draw_circle_service_ = n.advertiseService("/turtle_control/draw_circle", &TurtleControl::drawCircleCallback, this);
 
   // Service client
@@ -72,7 +72,7 @@ void TurtleControl::resetVelocity()
 }
 
 // service server callback for starting the drawing and drawing speed configuration
-bool TurtleControl::drawCallback(rrm_cv1_pal::Draw::Request& req, rrm_cv1_pal::Draw::Response& res)
+bool TurtleControl::drawCallback(rrm_cv1_pal::Draw_Line::Request& req, rrm_cv1_pal::Draw_Line::Response& res)
 {
   resetVelocity();
   velocity_msg_.linear.x = req.speed;
