@@ -47,9 +47,9 @@ private:
   // ROS communication tools
   ros::Publisher velocity_pub_;
   ros::Subscriber pose_sub_;
-  ros::ServiceServer square_service_, draw_circle_service_;
+  ros::ServiceServer draw_line_service_, draw_circle_service_;
   ros::ServiceClient teleport_client_;
-  ros::ServiceClient clear_client;
+  ros::ServiceClient clear_client_;
 };
 
 #endif  // PROJECT_TURTLECONTROL_H

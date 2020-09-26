@@ -13,13 +13,13 @@ TurtleControl::TurtleControl()
   pose_sub_ = n.subscribe("turtle1/pose", 1, &TurtleControl::poseCallback, this);
 
   // Service server
-  square_service_ = n.advertiseService("/turtle_control/draw", &TurtleControl::drawCallback, this);
+  draw_line_service_ = n.advertiseService("/turtle_control/draw", &TurtleControl::drawCallback, this);
   draw_circle_service_ = n.advertiseService("/turtle_control/draw_circle", &TurtleControl::drawCircleCallback, this);
 
   // Service client
   teleport_client_ = n.serviceClient<turtlesim::TeleportAbsolute>("/turtle1/teleport_absolute");
 
-  clear_client = n.serviceClient<std_srvs::Empty>("/clear");
+  clear_client_ = n.serviceClient<std_srvs::Empty>("/clear");
 
   ros::ServiceClient setpen_client = n.serviceClient<turtlesim::SetPen>("/turtle1/set_pen");
 
@@ -112,7 +112,7 @@ void TurtleControl::poseCallback(const turtlesim::Pose::ConstPtr& msg)
     teleport_client_.call(teleport_srv);
 
     std_srvs::Empty empty;
-    clear_client.call(empty);
+    clear_client_.call(empty);
   }
   this->pose_msg_ = *msg;
 }
