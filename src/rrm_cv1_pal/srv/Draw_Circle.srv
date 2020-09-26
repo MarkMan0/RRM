@@ -1,0 +1,4 @@
+float32 radius
+int64 speed
+---
+bool sucess

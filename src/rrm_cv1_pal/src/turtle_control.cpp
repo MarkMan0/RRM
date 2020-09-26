@@ -14,6 +14,7 @@ TurtleControl::TurtleControl()
 
   // Service server
   square_service_ = n.advertiseService("/turtle_control/draw", &TurtleControl::drawCallback, this);
+  draw_circle_service_ = n.advertiseService("/turtle_control/draw_circle", &TurtleControl::drawCircleCallback, this);
 
   // Service client
   teleport_client_ = n.serviceClient<turtlesim::TeleportAbsolute>("/turtle1/teleport_absolute");
@@ -65,13 +66,38 @@ TurtleControl::TurtleControl()
   this->pose_msg_ = turtlesim::Pose();
 }
 
+void TurtleControl::resetVelocity()
+{
+  velocity_msg_ = geometry_msgs::Twist();
+}
+
 // service server callback for starting the drawing and drawing speed configuration
 bool TurtleControl::drawCallback(rrm_cv1_pal::Draw::Request& req, rrm_cv1_pal::Draw::Response& res)
 {
+  resetVelocity();
   velocity_msg_.linear.x = req.speed;
   this->drawing_status_ = true;
   res.success = true;
   return true;
+}
+
+bool TurtleControl::drawCircleCallback(rrm_cv1_pal::Draw_Circle::Request& req, rrm_cv1_pal::Draw_Circle::Response& res)
+{
+  resetVelocity();
+  if (req.speed == 0 || req.radius == 0)
+  {
+    drawing_status_ = false;
+    res.sucess = false;
+  }
+  else
+  {
+    velocity_msg_.linear.x = req.speed;
+    velocity_msg_.angular.z = static_cast<double>(req.speed) / req.radius;
+    drawing_status_ = true;
+    res.sucess = true;
+  }
+
+  return res.sucess;
 }
 
 // topic callback a for listening to the pose message from the turtle
