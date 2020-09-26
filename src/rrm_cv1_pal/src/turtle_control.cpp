@@ -97,7 +97,7 @@ bool TurtleControl::drawCircleCallback(rrm_cv1_pal::Draw_Circle::Request& req, r
     res.sucess = true;
   }
 
-  return res.sucess;
+  return true;
 }
 
 // topic callback a for listening to the pose message from the turtle
