@@ -33,6 +33,8 @@ public:
   double getRate();
   bool getDrawingStatus();
 
+  void tick();
+
 private:
   // Consts
   const double PUB_RATE = 100.0;

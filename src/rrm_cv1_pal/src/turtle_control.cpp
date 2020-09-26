@@ -67,6 +67,14 @@ TurtleControl::TurtleControl()
   this->pose_msg_ = turtlesim::Pose();
 }
 
+void TurtleControl::tick()
+{
+  if (drawing_status_)
+  {
+    publish();
+  }
+}
+
 void TurtleControl::resetVelocity()
 {
   velocity_msg_ = geometry_msgs::Twist();

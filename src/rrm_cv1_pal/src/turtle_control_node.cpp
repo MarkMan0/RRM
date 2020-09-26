@@ -14,9 +14,7 @@ int main(int argc, char** argv)
   // Control turtle in loop
   while (ros::ok())
   {
-    // drawing with the turtle
-    if (turtleControl.getDrawingStatus())
-      turtleControl.publish();
+    turtleControl.tick();
     ros::spinOnce();
     loop_rate.sleep();
   }
