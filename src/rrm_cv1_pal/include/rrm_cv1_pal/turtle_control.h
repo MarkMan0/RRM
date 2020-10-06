@@ -29,7 +29,7 @@ public:
 
   // Other public methods
   void setupDrawing();
-  void publish();
+  void publish(const geometry_msgs::Twist&);
   double getRate();
   bool getDrawingStatus();
 

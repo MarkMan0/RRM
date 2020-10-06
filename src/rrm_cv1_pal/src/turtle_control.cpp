@@ -71,7 +71,7 @@ void TurtleControl::tick()
 {
   if (drawing_status_)
   {
-    publish();
+    publish(velocity_msg_);
   }
 }
 
@@ -112,6 +112,11 @@ bool TurtleControl::drawCircleCallback(rrm_cv1_pal::Draw_Circle::Request& req, r
 bool TurtleControl::movingCallback(rrm_cv1_pal::Moving::Request& req, rrm_cv1_pal::Moving::Response& res)
 {
   drawing_status_ = req.moving;
+  if (!req.moving)
+  {
+    geometry_msgs::Twist zero;
+    publish(zero);
+  }
   res.success = true;
   return true;
 }
@@ -134,9 +139,9 @@ void TurtleControl::poseCallback(const turtlesim::Pose::ConstPtr& msg)
 }
 
 // publishing the configured velocity
-void TurtleControl::publish()
+void TurtleControl::publish(const geometry_msgs::Twist& msg)
 {
-  velocity_pub_.publish(velocity_msg_);
+  velocity_pub_.publish(msg);
 }
 
 // frequency setup
