@@ -1,0 +1,7 @@
+<launch>
+	<param name="robot_description" textfile="$(find rrm_cv3_pal)/urdf/arm.urdf" />
+	<param name="use_gui" value="True"/>
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	<node name="robot_tf_broadcaster" pkg="rrm_cv3_pal" type="tf_broadcaster_node" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find rrm_cv3_pal)/config/rrm_cv3_pal.rviz" required="true" />
+</launch>
