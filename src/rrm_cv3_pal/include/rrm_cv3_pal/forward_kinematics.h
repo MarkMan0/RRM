@@ -22,10 +22,12 @@ public:
   void broadcastTf();
 
   // Callbacks
-  void jointCallback(const sensor_msgs::JointState::ConstPtr &msg);
-  bool createWorkspace(std_srvs::Trigger::Request &req, std_srvs::Trigger::Response &res);
+  void jointCallback(const sensor_msgs::JointState::ConstPtr& msg);
 
 private:
+  void broadcastDirectTransforms();
+  void broadcastVisualTransforms();
+
   // Const
   const double L1 = 0.203;
   const double L2 = 0.178;
@@ -42,8 +44,8 @@ private:
   sensor_msgs::JointState joint_state_;
 
   // current position of link2 and end efector
-  tf::Vector3 position_;
-  tf::Quaternion orientation_;
+  tf::Vector3 position_, ball2_pos_, ball3_pos_, ball4_pos_;
+  tf::Quaternion orientation_, ball2_rot_, ball3_rot_, ball4_rot_;
 };
 
 #endif  // FORWARD_KINEMATICS_H

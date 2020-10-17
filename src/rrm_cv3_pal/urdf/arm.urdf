@@ -13,7 +13,7 @@
     </visual>
   </link>
 
-  <link name="joint_1">
+  <link name="link_ball_1">
     <visual>
       <geometry>
         <sphere radius="0.03"/>
@@ -25,7 +25,7 @@
     </visual>
   </link>
 
-  <link name="joint_2">
+  <link name="link_ball_2">
     <visual>
       <geometry>
         <sphere radius="0.03"/>
@@ -37,10 +37,34 @@
     </visual>
   </link>
 
-  <link name="link2">
+  <link name="link_ball_3">
     <visual>
       <geometry>
-        <cylinder length="0.178" radius = "0.01"/>
+        <sphere radius="0.03"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+      <origin xyz="0 0 0" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="link_ball_4">
+    <visual>
+      <geometry>
+        <sphere radius="0.03"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+      <origin xyz="0 0 0" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="link_vis_1">
+    <visual>
+      <geometry>
+        <cylinder length="0.203" radius = "0.01"/>
       </geometry>
       <material name="white">
         <color rgba="1 1 1 1"/>
@@ -49,10 +73,46 @@
     </visual>
   </link>
 
-  <link name="link1">
+  <link name="link_vis_2">
     <visual>
       <geometry>
         <cylinder length="0.203" radius = "0.01"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <origin xyz="0 0 0" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="link_vis_3">
+    <visual>
+      <geometry>
+        <cylinder length="0.203" radius = "0.01"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <origin xyz="0 0 0" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="link_vis_3B">
+    <visual>
+      <geometry>
+        <cylinder length="0.203" radius = "0.01"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <origin xyz="0 0 0" rpy = "0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="link_vis_4">
+    <visual>
+      <geometry>
+        <cylinder length="0.178" radius = "0.01"/>
       </geometry>
       <material name="white">
         <color rgba="1 1 1 1"/>
@@ -67,33 +127,68 @@
   <joint name="joint_1" type="revolute">
     <axis xyz="0 0 1"/>
     <parent link="base_link"/>
-    <child link="joint_1"/>
+    <child link="link_ball_1"/>
     <origin xyz="0 0 0" rpy = "0 0 0"/>
     <limit effort="1000.0" lower="-1.62" upper="1.62" velocity="0.5"/>
   </joint>
 
   <joint name="joint_2" type="revolute">
     <axis xyz="0 1 0"/>
-    <parent link="joint_1"/>
-    <child link="joint_2"/>
+    <parent link="link_ball_1"/>
+    <child link="link_ball_2"/>
     <origin xyz="0 0 0.203" rpy = "0 0 0"/>
     <limit effort="1000.0" lower="-0.96" upper="2.182" velocity="0.5"/>
   </joint>
 
-  <joint name="link2_to_joint_2" type="fixed">
-    <parent link="joint_2"/>
-    <child link="link2"/>
-    <origin xyz="0 0 0.089" rpy = "0 0 0"/>
+  <joint name="joint_3" type="prismatic">
+    <axis xyz="0 0 1"/>
+    <parent link="link_ball_2"/>
+    <child link="link_ball_3"/>
+    <origin xyz="0 0 0.203" rpy = "0 0 0"/>
+    <limit effort="1000.0" lower="0" upper="0.15" velocity="0.5"/>
   </joint>
 
-  <joint name="link1_to_joint_1" type="fixed">
-    <parent link="joint_1"/>
-    <child link="link1"/>
+  <joint name="joint_4" type="revolute">
+    <axis xyz="0 1 0"/>
+    <parent link="link_ball_3"/>
+    <child link="link_ball_4"/>
+    <origin xyz="0 0 0.203" rpy = "0 0 0"/>
+    <limit effort="1000.0" lower="-0.96" upper="2.182" velocity="0.5"/>
+  </joint>
+
+
+  <joint name="joint_vis_1" type="fixed">
+    <parent link="link_ball_1"/>
+    <child link="link_vis_1"/>
     <origin xyz="0 0 0.1015" rpy = "0 0 0"/>
   </joint>
 
-  <joint name="joint_2_to_tool0" type="fixed">
-    <parent link="joint_2"/>
+  <joint name="joint_vis_2" type="fixed">
+    <parent link="link_ball_2"/>
+    <child link="link_vis_2"/>
+    <origin xyz="0 0 0.089" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name="joint_vis_3" type="fixed">
+    <parent link="link_ball_3"/>
+    <child link="link_vis_3"/>
+    <origin xyz="0 0 0.089" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name="joint_vis_3B" type="fixed">
+    <parent link="link_ball_3"/>
+    <child link="link_vis_3B"/>
+    <origin xyz="0 0 -0.1" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name="joint_vis_4" type="fixed">
+    <parent link="link_ball_4"/>
+    <child link="link_vis_4"/>
+    <origin xyz="0 0 0.089" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name="joint_to_tool0" type="fixed">
+    <parent link="link_ball_4"/>
     <child link="tool0"/>
     <origin xyz="0 0 0.178" rpy = "0 0 0"/>
   </joint>
