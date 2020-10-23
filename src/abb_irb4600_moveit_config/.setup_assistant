@@ -8,4 +8,4 @@ moveit_setup_assistant_config:
   CONFIG:
     author_name: xpal
     author_email: xpal@stuba.sk
-    generated_timestamp: 1603201246
+    generated_timestamp: 1603484422
