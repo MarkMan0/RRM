@@ -3,3 +3,6 @@ devel/
 .catkin_workspace
 src/CMakeLists.txt
 .vscode
+logs/
+.catkin_tools/
+src/panda_moveit_config
