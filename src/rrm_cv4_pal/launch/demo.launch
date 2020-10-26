@@ -1,0 +1,7 @@
+<launch>
+    <!-- Launch moveit demo for robot -->
+    <include file="$(find abb_irb4600_moveit_config)/launch/demo.launch"/>
+
+    <!-- Launch node for controlling the planner -->
+    <node name="moveit_jog_node" pkg="rrm_cv4_pal" type="moveit_jog_node" output="screen"/>
+</launch>
