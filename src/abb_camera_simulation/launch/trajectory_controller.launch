@@ -11,12 +11,7 @@
     <node pkg="controller_manager" type="spawner" name="joint_state_controller_spawner" 
             ns = "$(arg arm_name)" args="joint_state_controller" respawn="false" output="screen"/>
     <!-- spawn arm controller -->
-    <node pkg="controller_manager" type="spawner" name="kv01_arm_controller_spawner" ns="$(arg arm_name)" respawn="false" output="screen" args="joint1_position_controller 
-            joint2_position_controller 
-            joint3_position_controller 
-            joint4_position_controller 
-            joint5_position_controller 
-            joint6_position_controller"/>
+    <node pkg="controller_manager" type="spawner" name="kv01_arm_controller_spawner" ns="$(arg arm_name)" respawn="false" output="screen" args="robot_controller"/>
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
         <remap from="/joint_states" to="/abb_irb/joint_states" />
