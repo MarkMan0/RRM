@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find abb_camera_simulation)/launch/abb_gazebo.launch" />
+    <include file="$(find YOUR_PACKAGE_moveit_config)/launch/demo.launch" />
+</launch>
