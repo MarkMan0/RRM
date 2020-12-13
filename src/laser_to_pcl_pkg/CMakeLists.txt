@@ -162,8 +162,8 @@ include_directories(
 # target_link_libraries(scanner ${catkin_LIBRARIES})
 # add_dependencies(scanner ${catkin_EXPORTED_TARGETS} rrm_cv5_8_scanner_generate_messages_cpp)
 
-add_executable(scanner src/scanner.cpp src/laser_to_pcl.cpp)
-target_link_libraries(scanner ${catkin_LIBRARIES})
+add_executable(scanner_node src/scanner_node.cpp src/laser_to_pcl.cpp)
+target_link_libraries(scanner_node ${catkin_LIBRARIES})
 #add_dependencies(scanner ${catkin_EXPORTED_TARGETS} rrm_cv5_8_scanner_generate_messages_cpp)
 
 #############

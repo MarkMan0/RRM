@@ -1,4 +1,4 @@
 <launch>
     <include file="$(find abb_camera_simulation)/launch/camera_sim.launch" />
-    <node name="scanner" pkg="laser_to_pcl_pkg" type="scanner"/>
+    <node name="scanner_node" pkg="laser_to_pcl_pkg" type="scanner_node" required="true"/>
 </launch>

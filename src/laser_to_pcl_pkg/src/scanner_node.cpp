@@ -3,7 +3,7 @@
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "l2p");
+  ros::init(argc, argv, "laser_scanner");
   ros::NodeHandle node();
   LaserScanToPointCloud l_to_p;
   ros::Rate loop_rate(50);
