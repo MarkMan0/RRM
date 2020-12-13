@@ -15,6 +15,7 @@
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
         <remap from="/joint_states" to="/abb_irb/joint_states" />
+        <param name="publish_frequency" type="double" value="200.0" />
     </node>
 
 </launch>

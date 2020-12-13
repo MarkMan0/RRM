@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
     <xacro:macro name="abb_irb4600_60_205" params="prefix">
-    <!-- link list -->
+        <!-- link list -->
         <link name="world"/>
 
         <joint name="to_world" type="fixed">
@@ -22,47 +22,41 @@
                 </material>
             </visual>
             <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+                <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
                     <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/collision/base_link.stl"/>
                 </geometry>
                 <material name="yellow">
                     <color rgba="0 1 1 1"/>
-            </material>
+                </material>
             </collision>
             <inertial>
-                  <origin xyz="0 0 0" rpy="0 0 0"/>
-                  <mass value="1"/>
-                  <inertia
-            	  ixx="0.01" ixy="0.01" ixz="0.01"
-            	  iyy="0.01" iyz="0.01"
-            	  izz="0.01"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="1"/>
+                <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/>
             </inertial>
         </link>
 
         <link name="${prefix}link_1">
             <visual>
-              <origin xyz="0 0 0" rpy="0 0 0" />
-              <geometry>
-                <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/visual/link_1.stl"/>
-              </geometry>
-              <material name="abb_white"/>                
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/visual/link_1.stl"/>
+                </geometry>
+                <material name="abb_white"/>
             </visual>
 
             <collision>
-             <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-              <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/collision/link_1.stl"/>
-            </geometry>
-            <material name="yellow"/> 
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/collision/link_1.stl"/>
+                </geometry>
+                <material name="yellow"/>
             </collision>
             <inertial>
-                  <origin xyz="0 0 0" rpy="0 0 0"/>
-                  <mass value="1"/>
-                  <inertia
-            	  ixx="0.01" ixy="0.01" ixz="0.01"
-            	  iyy="0.01" iyz="0.01"
-            	  izz="0.01"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="1"/>
+                <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/>
             </inertial>
         </link>
 
@@ -72,22 +66,19 @@
                 <geometry>
                     <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/visual/link_2.stl"/>
                 </geometry>
-                <material name="abb_white"/>        
+                <material name="abb_white"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
                     <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/collision/link_2.stl"/>
                 </geometry>
-                <material name="yellow"/> 
+                <material name="yellow"/>
             </collision>
             <inertial>
-                  <origin xyz="0 0 0" rpy="0 0 0"/>
-                  <mass value="1"/>
-                  <inertia
-            	  ixx="0.01" ixy="0.01" ixz="0.01"
-            	  iyy="0.01" iyz="0.01"
-            	  izz="0.01"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="1"/>
+                <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/>
             </inertial>
         </link>
 
@@ -97,22 +88,19 @@
                 <geometry>
                     <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/visual/link_3.stl"/>
                 </geometry>
-                <material name="abb_white"/>        
+                <material name="abb_white"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
                     <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/collision/link_3.stl"/>
                 </geometry>
-                <material name="yellow"/> 
+                <material name="yellow"/>
             </collision>
             <inertial>
-                  <origin xyz="0 0 0" rpy="0 0 0"/>
-                  <mass value="1"/>
-                  <inertia
-            	  ixx="0.01" ixy="0.01" ixz="0.01"
-            	  iyy="0.01" iyz="0.01"
-            	  izz="0.01"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="1"/>
+                <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/>
             </inertial>
         </link>
 
@@ -122,22 +110,19 @@
                 <geometry>
                     <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/visual/link_4.stl"/>
                 </geometry>
-                <material name="abb_white"/>        
+                <material name="abb_white"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
                     <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/collision/link_4.stl"/>
                 </geometry>
-                <material name="yellow"/> 
+                <material name="yellow"/>
             </collision>
             <inertial>
-                  <origin xyz="0 0 0" rpy="0 0 0"/>
-                  <mass value="1"/>
-                  <inertia
-            	  ixx="0.01" ixy="0.01" ixz="0.01"
-            	  iyy="0.01" iyz="0.01"
-            	  izz="0.01"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="1"/>
+                <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/>
             </inertial>
         </link>
 
@@ -147,22 +132,19 @@
                 <geometry>
                     <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/visual/link_5.stl"/>
                 </geometry>
-                <material name="abb_white"/>        
+                <material name="abb_white"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
                     <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/collision/link_5.stl"/>
                 </geometry>
-                <material name="yellow"/> 
+                <material name="yellow"/>
             </collision>
             <inertial>
-                  <origin xyz="0 0 0" rpy="0 0 0"/>
-                  <mass value="1"/>
-                  <inertia
-            	  ixx="0.01" ixy="0.01" ixz="0.01"
-            	  iyy="0.01" iyz="0.01"
-            	  izz="0.01"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="1"/>
+                <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/>
             </inertial>
         </link>
 
@@ -177,19 +159,16 @@
                 </material>
             </visual>
             <collision>
-               <origin xyz="0 0 0" rpy="0 0 0" />
-                  <geometry>
-                     <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/collision/link_6.stl"/>
-                  </geometry>
-                  <material name="yellow"/> 
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://abb_camera_simulation/meshes/abb_irb4600_60_205/collision/link_6.stl"/>
+                </geometry>
+                <material name="yellow"/>
             </collision>
             <inertial>
-                  <origin xyz="0 0 0" rpy="0 0 0"/>
-                  <mass value="1"/>
-                  <inertia
-            	  ixx="0.01" ixy="0.01" ixz="0.01"
-            	  iyy="0.01" iyz="0.01"
-            	  izz="0.01"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="1"/>
+                <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/>
             </inertial>
         </link>
 
@@ -215,10 +194,7 @@
             <inertial>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <mass value="0.1"/>
-                <inertia
-                        ixx="0.01" ixy="0.01" ixz="0.01"
-                        iyy="0.01" iyz="0.01"
-                        izz="0.01"/>
+                <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01"/>
             </inertial>
         </link>
 
@@ -240,7 +216,7 @@
         </joint>
 
         <joint name="${prefix}joint_2" type="revolute">
-        <origin xyz="0.174999999999998 -0.0515489073390827 0.341500000000001" rpy="-1.57772181044202E-30 0 0" />
+            <origin xyz="0.174999999999998 -0.0515489073390827 0.341500000000001" rpy="-1.57772181044202E-30 0 0" />
             <parent link="${prefix}link_1"/>
             <child link="${prefix}link_2"/>
             <axis xyz="0 1 0"/>
@@ -282,35 +258,20 @@
         <joint name="${prefix}joint_6-tool0" type="fixed">
             <parent link="${prefix}link_6"/>
             <child link="${prefix}tool0"/>
-            <origin xyz="0.135 0 0" rpy="0 1.570796 0"/>
+            <origin xyz="0.135 0 0" rpy="0 0 0"/>
         </joint>
 
         <joint name="to_kinect" type="fixed">
             <parent link="${prefix}tool0"/>
             <child link="kinect_frame"/>
-            Translation
-            -0.0694681
-            -0.284737
-            0.247462
-            Rotation
-            -1.61514
-            -0.043724
-            -2.17802
-
-
-            <origin xyz="-0.0695877
- -0.285281
-  0.240969"
-                    rpy=" -1.61039
--0.0438775
-  -2.17805"/>
+            <origin xyz="-0.0695877 -0.285281 0.240969" rpy=" -1.61039 -0.0438775 -2.17805"/>
         </joint>
 
         <joint name="to_kinect_mesh" type="revolute">
             <parent link="${prefix}tool0"/>
             <child link="kinect_mesh"/>
             <limit lower="0" upper="0" effort="0" velocity="0"/>
-            <origin xyz="0 0 0.015" rpy="0 0 1.57"/>
+            <origin xyz="0.02 0 0" rpy="1.57 0 1.57"/>
         </joint>
 
         <link name ="kinect_frame"/>

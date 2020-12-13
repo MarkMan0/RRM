@@ -1,7 +1,8 @@
 <launch>
 
 
-  <include file="$(find abb_camera_simulation)/launch/load_irb4600.launch" /><!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <include file="$(find abb_camera_simulation)/launch/load_irb4600.launch" />
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
@@ -22,14 +23,11 @@
 
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-    args="-urdf -model abb_irb -param robot_description"/>
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model abb_irb -param robot_description"/>
 
-<!-- PO VYTVORENI TRAJECTORY KONTROLERA ODKOMENTOVAT! -->
-  <!--   <include file="$(find abb_camera_simulation)/launch/trajectory_controller.launch" /> -->
+  <!-- Launch controllers -->
+  <include file="$(find abb_camera_simulation)/launch/trajectory_controller.launch" />
 
-  <!--<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">-->
-    <!--<param name="publish_frequency" type="double" value="100.0" />-->
-  <!--</node>-->
+
 
 </launch>
