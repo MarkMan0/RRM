@@ -51,6 +51,11 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
 
+  <exec_depend>abb_camera_moveit_config</exec_depend>
+  <exec_depend>abb_camera_scan_path</exec_depend>
+  <exec_depend>abb_camera_simulation</exec_depend>
+  <exec_depend>laser_to_pcl_pkg</exec_depend>
+
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- Other tools can request additional information be placed here -->

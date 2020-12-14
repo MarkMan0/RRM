@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find abb_camera_simulation)/launch/camera_sim.launch" />
+    <node name="scanner_node" pkg="laser_to_pcl_pkg" type="scanner_node" required="true"/>
+    <node name="path_node" pkg="abb_camera_scan_path" type="scan_path_node" output="screen"/>
+</launch>
