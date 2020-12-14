@@ -35,6 +35,7 @@ void execute_path()
   visual_tools.loadRemoteControl();
   visual_tools.trigger();
   visual_tools.prompt("Press 'next' to move to start position");
+  ROS_INFO("Scanning....");
 
   geometry_msgs::Pose target_pose;
   tf2::Quaternion q;
